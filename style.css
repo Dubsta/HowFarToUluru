@@ -1,0 +1,31 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+
+h1 {
+  background-color: rgb(128 128 128 / 73%);
+  z-index: 1;
+  position: relative;
+  width: fit-content;
+  padding: 10px;
+  font-family: 'Roboto Mono Light', 'Helvetica';
+}
+
+
+#map {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.marker {
+  background-image: url('uluru.png');
+  background-size: cover;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  cursor: pointer;
+}
