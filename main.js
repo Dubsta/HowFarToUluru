@@ -22,7 +22,7 @@ const uluruGeojson = {
 
 // add Uluru marker to map
   const el = document.createElement('div');
-  el.className = 'marker';
+  el.className = 'uluru';
   new mapboxgl.Marker(el).setLngLat(uluruGeojson.geometry.coordinates).addTo(map);
 
 // Zoom transtion on load
@@ -31,3 +31,30 @@ map.zoomTo(4, {
   offset: [-40, -30]
 });
 
+// Add controls
+const controls = new mapboxgl.NavigationControl({
+  showCompass: true,
+  showZoom: true,
+  visualizePitch: true
+})
+map.addControl(controls, "bottom-right");
+
+// Add marker
+const marker = new mapboxgl.Marker({
+    draggable: true,
+    color: 'grey'
+})
+.setLngLat(uluruGeojson.geometry.coordinates)
+.addTo(map);
+ 
+function updateMarker() {
+    const lngLat = marker.getLngLat();
+    console.log(lngLat);
+}
+ 
+marker.on('dragend', updateMarker);
+
+map.on('click', (e) => {
+  marker.setLngLat(e.lngLat);
+  updateMarker();
+});
