@@ -10,7 +10,7 @@ h1 {
   position: relative;
   width: fit-content;
   padding: 10px;
-  font-family: 'Roboto Mono Light', 'Helvetica';
+  font-family: 'Roboto Mono', 'Helvetica';
 }
 
 
@@ -24,8 +24,8 @@ h1 {
 .marker {
   background-image: url('uluru.png');
   background-size: cover;
-  width: 45px;
-  height: 45px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
   cursor: pointer;
 }
