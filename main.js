@@ -3,6 +3,9 @@ Start of custom scripts. mapbox-gl.js is already loaded from head.
 The token.js script holds MY_TOKEN variable for api token.
 */
 
+// Hide the results at start. Setting the css to 'display = none;' stops the script from working.
+document.getElementById('results').style.display = 'none';
+
 // draw map
 mapboxgl.accessToken = MY_TOKEN;
 var map = new mapboxgl.Map({
@@ -21,13 +24,14 @@ const uluruGeojson = {
 };
 
 // add Uluru marker to map
-  const el = document.createElement('div');
-  el.className = 'uluru';
-  new mapboxgl.Marker(el).setLngLat(uluruGeojson.geometry.coordinates).addTo(map);
+const el = document.createElement('div');
+el.className = 'uluru';
+const uluruLngLat = new mapboxgl.LngLat(...uluruGeojson.geometry.coordinates);
+new mapboxgl.Marker(el).setLngLat(uluruLngLat).addTo(map);
 
 // Zoom transtion on load
 map.zoomTo(4, {
-  duration: 4000,
+  duration: 3500,
   offset: [-40, -30]
 });
 
@@ -44,14 +48,22 @@ const marker = new mapboxgl.Marker({
     draggable: true,
     color: 'grey'
 })
-.setLngLat(uluruGeojson.geometry.coordinates)
+.setLngLat(uluruLngLat)
 .addTo(map);
  
+
 function updateMarker() {
-    const lngLat = marker.getLngLat();
-    console.log(lngLat);
+  // Get the new distance and update the results
+  const markerLngLat = marker.getLngLat();
+  const distanceTo = markerLngLat.distanceTo(uluruLngLat);
+  const results = document.getElementById('results');
+  const distanceStr = `${Math.round(distanceTo/1000).toLocaleString("en-US")}km`
+  document.getElementById('distance').innerHTML = distanceStr;
+  //const description = document.getElementById('description');
+  if (results.style.display === "none") results.style.display = "block";
 }
- 
+
+// Handlers
 marker.on('dragend', updateMarker);
 
 map.on('click', (e) => {
