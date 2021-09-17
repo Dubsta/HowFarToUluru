@@ -6,3 +6,11 @@ A small project to learn about MapBox. A user can click or drag a marker on a ma
 3. Add a single line `const MY_TOKEN = '[token]';` to the file, replacing [token] with with your own.
 ## Coming soon
 This very small project is still a work in progress with a live demo coming soon. :smiley:
+Possible future features:
+- Draw a line between points
+- A message box instructing users
+- Cleaner design/style
+- Contextual descriptive text
+- Searchbox for location
+- Detect location from user
+- Responsive design
