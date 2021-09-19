@@ -94,11 +94,11 @@ const linestring = {
 //   map.addSource('geojson', {
 //     'type': 'geojson',
 //     'data': geojson
-});
+//});
  
 // Add styles to the map
 map.addLayer({
-  id: 'measure-lines',
+  id: 'measure-line',
   type: 'line',
   source: 'geojson',
   layout: {
@@ -114,8 +114,8 @@ map.addLayer({
 });
  
 map.on('click', (e) => {
-const features = map.queryRenderedFeatures(e.point, {
-layers: ['measure-points']
+  const features = map.queryRenderedFeatures(e.point, {
+    layers: ['measure-points']
 });
  
 // Remove the linestring from the group
