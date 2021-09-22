@@ -4,13 +4,16 @@ body {
 }
 
 
-h1, #results {
+h1, #results, #instructions {
   background-color: rgb(128 128 128 / 73%);
   z-index: 1;
   position: relative;
   width: fit-content;
-  padding: 10px;
+  padding: 5px 10px;
+  border: 1px solid black;
+  border-radius: 3px;
   font-family: 'Roboto Mono', 'Helvetica';
+  left: 20px;
 }
 
 .uluru {
@@ -26,4 +29,17 @@ h1, #results {
   top: 0;
   bottom: 0;
   width: 100%;
+}
+
+#instructions {
+  background-color: rgb(128 128 128 / 50%);
+  position: absolute;
+  top: 43px;
+  left: auto;
+  right: 30px;
+  margin: 0;
+  font-size: 12px;
+  line-height: 18px;
+  border-radius: 3px;
+  display: block;
 }
