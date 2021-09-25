@@ -111,3 +111,22 @@ map.on('click', (e) => {
   marker.setLngLat(e.lngLat);
   updateMarker();
 });
+
+const geocoder = new MapboxGeocoder({
+  // Initialize the geocoder
+  accessToken: mapboxgl.accessToken,
+  mapboxgl: mapboxgl,
+  marker: false,
+  placeholder: 'Search here',
+  proximity: {
+    longitude: uluruLngLat.lng,
+    latitude: uluruLngLat.lat
+  }
+});
+
+map.addControl(geocoder, 'top-right');
+
+geocoder.on('result', ({ result }) => {
+    marker.setLngLat(result.center);
+    updateMarker();
+});
