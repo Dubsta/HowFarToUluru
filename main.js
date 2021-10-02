@@ -35,6 +35,12 @@ map.zoomTo(4, {
   offset: [-40, -30]
 });
 
+// fit bounds to show Australia on any screensize
+map.fitBounds([
+  [107.420472895106, -44.879649454310325], // southwestern corner of the bounds
+  [164.7712203942604, -8.698218845611237] // northeastern corner of the bounds
+]);
+
 // Add controls
 const controls = new mapboxgl.NavigationControl({
   showCompass: true,

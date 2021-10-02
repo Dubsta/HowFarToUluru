@@ -15,3 +15,5 @@ Possible future features:
 - Contextual descriptive text
 - Searchbox for location
 - Optionally detect user location
+- Put instructions in the same box as result, and replace content on 1st action
+- Move seach box just under heading.
