@@ -43,3 +43,9 @@ h1, #results, #instructions {
   border-radius: 3px;
   display: block;
 }
+
+
+/* Might be able to use something like this to move the controller */
+.mapboxgl-ctrl-geocoder {
+
+}
