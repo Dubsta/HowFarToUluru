@@ -3,9 +3,6 @@ Start of custom scripts. mapbox-gl.js is already loaded from head.
 The token.js script holds MY_TOKEN variable for api token.
 */
 
-// Hide the results at start. Setting the css to 'display = none;' stops the script from working.
-document.getElementById('results').style.display = 'none';
-
 // draw map
 mapboxgl.accessToken = MY_TOKEN;
 var map = new mapboxgl.Map({
@@ -84,7 +81,7 @@ function updateMarker() {
   const results = document.getElementById('results');
   const distanceStr = `${Math.round(distanceTo/1000).toLocaleString("en-US")}km`
   document.getElementById('distance').innerHTML = distanceStr;
-  if (results.style.display === "none") results.style.display = "block";
+  document.getElementById('description').innerHTML = "That's pretty far!";
 }
 
 // Handlers
@@ -130,7 +127,7 @@ const geocoder = new MapboxGeocoder({
   }
 });
 
-map.addControl(geocoder, 'top-right');
+map.addControl(geocoder, 'top-left');
 
 geocoder.on('result', ({ result }) => {
     marker.setLngLat(result.center);
