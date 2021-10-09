@@ -14,4 +14,4 @@ Possible future features:
 - Responsive design
 - Cleaner design/style
 - Contextual descriptive text
-- Optionally detect user location
+- Tie Geoloaction to distance marker
