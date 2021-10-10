@@ -7,7 +7,7 @@ The token.js script holds MY_TOKEN variable for api token.
 mapboxgl.accessToken = MY_TOKEN;
 var map = new mapboxgl.Map({
   container: 'map',
-  style: 'mapbox://styles/dubsta/cktl07s468nuf17liru96hy1p',
+  style: 'mapbox://styles/dubsta/ckul1fabu70ty18mssh3bdcsz',
   center: [131.040, -25.354], // starting position [lng, lat]
   zoom: 12.58 // starting zoom
 });
@@ -53,7 +53,7 @@ const marker = new mapboxgl.Marker({
 })
 .setLngLat(uluruLngLat)
 .addTo(map);
- 
+
 // Data for to draw line
 const linegeojson = {
       'type': 'Feature',
@@ -69,7 +69,7 @@ const linegeojson = {
 
 function updateMarker() {
   // Redraw the line, get the new distance, and update the results
-  
+
   //Redraw line
   const markerLngLat = marker.getLngLat();
   linegeojson.geometry.coordinates.pop();
