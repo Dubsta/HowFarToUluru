@@ -127,14 +127,21 @@ const geocoder = new MapboxGeocoder({
   }
 });
 
+const geolocate = new mapboxgl.GeolocateControl({
+  positionOptions: {
+  enableHighAccuracy: true
+}})
+
 map
   .addControl(geocoder, 'top-left')
-  .addControl(
-    new mapboxgl.GeolocateControl({
-    positionOptions: {
-    enableHighAccuracy: true
-    }})
-);
+  .addControl(geolocate);
+
+geolocate.on('geolocate', (e) => {
+  console.log(e);
+  preventdefault();
+  marker.setLngLat(e.coords);
+  updateMarker();
+});
 
 geocoder.on('result', ({ result }) => {
     marker.setLngLat(result.center);
